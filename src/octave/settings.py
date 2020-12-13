@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'octave.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',        # 追加
-        'NAME': 'octave_db',    # init.sql で CREATE したデータベース名と同じことを確認
-        'USER': 'octave_user',  # 追加
-        'PASSWORD': 'octave', # 追加（環境変数で指定したパスワードと同じもの）
-        'PORT': '3306',      # 追加
-        'HOST': 'db',        # 追加
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'octave_db',
+        'USER': 'octave_user',
+        'PASSWORD': 'octave',
+        'PORT': '3306',
+        'HOST': 'db',
     }
 }
 
