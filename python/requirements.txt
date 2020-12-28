@@ -1,3 +1,8 @@
 Django==3.1.4
 uwsgi==2.0.18
 mysqlclient==1.4.6
+djangorestframework==3.12.2
+djangorestframework-simplejwt==4.6.0
+djoser==2.1.0
+django-allauth==0.44.0
+pillow==8.0.1
