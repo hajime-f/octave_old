@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth.socialaccount',
     'dj_rest_auth',
     'dj_rest_auth.registration',
 
@@ -57,18 +57,27 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     )
 }
 SITE_ID = 1
 REST_USE_JWT = True
-JWT_AUTH_COOKIE = 'users'
+# REST_SESSION_LOGIN = True
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+JWT_AUTH_COOKIE = 'user'
+AUTH_USER_MODEL = 'users.User'
+
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'uuid',
+}
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
     
@@ -101,7 +110,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'octave.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -147,11 +155,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-STATIC_URL = '/static/'   # 追加
-STATIC_ROOT = '/static/'  # 追加
+STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
 
-LANGUAGE_CODE = 'ja'      # 編集
-TIME_ZONE = 'Asia/Tokyo'  # 編集
+LANGUAGE_CODE = 'ja'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -165,4 +173,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH_USER_MODEL = 'users.User'
