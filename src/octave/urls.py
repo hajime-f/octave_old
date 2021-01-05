@@ -19,6 +19,7 @@ from django.urls import path, include
 #     TokenObtainPairView,
 #     TokenRefreshView,
 # )
+from dj_rest_auth.registration.views import VerifyEmailView
 from rest_framework.documentation import include_docs_urls   # 追加
 from rest_framework.schemas import get_schema_view # 追加
 
@@ -28,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('dj-rest-auth/', include('dj_rest_auth.urls')),   # 追加
     path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),   # 追加
+    path('dj-rest-auth/account-confirm-email/', VerifyEmailView.as_view(), name='account_email_verification_sent'),
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('schema/', schema_view), # 追加

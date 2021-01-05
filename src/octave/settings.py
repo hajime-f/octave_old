@@ -47,12 +47,13 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'allauth',
     'allauth.account',
-    # 'allauth.socialaccount',
+    'allauth.socialaccount',
     'dj_rest_auth',
     'dj_rest_auth.registration',
 
     #My applications
     'users',
+    'orchestra',
 ]
 
 REST_FRAMEWORK = {
@@ -64,7 +65,7 @@ REST_FRAMEWORK = {
 SITE_ID = 1
 REST_USE_JWT = True
 # REST_SESSION_LOGIN = True
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 JWT_AUTH_COOKIE = 'user'
 AUTH_USER_MODEL = 'users.User'
 
