@@ -18,6 +18,23 @@ services:
     depends_on:
       - db
 
+  vue:
+    build:
+      context: ./vue
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: Vue
+    networks:
+      - django_net
+    volumes:
+      - ./src:/code
+      - ./static:/static
+      - ./template:/template
+    expose:
+      - "3000"
+    depends_on:
+      - python
+  
   db:
     build:
       context: ./mysql

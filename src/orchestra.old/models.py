@@ -7,7 +7,7 @@ class Orchestra(models.Model):
 
     uuid = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     
-    admin_users = models.ForeignKey(settings.AUTH_USER_MODEL, 
+    admin_users = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='管理者',
                                     related_name='orchestra', on_delete=models.PROTECT)
     
     orchestra_name = models.CharField(_('楽団名'), max_length=150)
