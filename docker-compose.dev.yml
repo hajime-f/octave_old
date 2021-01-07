@@ -27,7 +27,7 @@ services:
     networks:
       - django_net
     volumes:
-      - ./src:/code
+      - ./src/frontend:/code
       - ./static:/static
       - ./template:/template
     expose:
